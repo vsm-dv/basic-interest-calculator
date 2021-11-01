@@ -4,11 +4,11 @@ This basic calculator finds the value of any variable of the simple interest for
 The calculator is based on the following formulas and their derived equations:
 
 **Simple interest formula:**
-Interest = $P * r * (t/100)$
+Interest = P * r * (t/100)
 
 
 **Compound interest formula:**
-Future Amount = $P * (1 + r/100)^t$
+Future Amount = P * (1 + r/100)^t
 
 where:
 - P = principal

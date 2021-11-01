@@ -26,6 +26,9 @@ header {
 
 a {
     margin-left: 100px;
+    text-decoration: none;
+    color: #001f20;
+    font-weight: 600;
 }
 
 img {

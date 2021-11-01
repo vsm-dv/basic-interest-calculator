@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Interest calculator</title>
+</head>
+
+<body>
+
+    <header>
+        <img src="./assets/calculator-svgrepo-com.svg" alt="">
+        <h2>Simple and compound interest calculator</h2>
+        <a href="README.md">About</a>
+    </header>
+
+    <form>
+        <div class="input-container">
+            <label for="select-interest-type">Select the type of interest</label>
+            <select id="select-interest-type">
+                <option value=""></option>
+                <option value="simple">Simple</option>
+                <option value="compound">Compound</option>
+            </select>
+        </div>
+
+        <div class="input-container select-container hidden">
+            <label for="select-variable">Select the variable you want to solve for</label>
+            <select id="select-variable">
+                <option value=""></option>
+                <option value="interest">Interest</option>
+                <option value="principal">Principal</option>
+                <option value="principal-fa">Principal (option 2)</option>
+                <option value="future-amount">Future Amount</option>
+                <option value="rate-of-interest">Rate of Interest (%)</option>
+                <option value="number-of-periods">Time/Number of periods</option>
+            </select>
+        </div>
+
+
+        <div class="variables hidden">
+            <p class="variables-title">Please inform the value of the <span>(numbers only):</span></p>
+            <div class="input-container">
+                <label for="variable-a">a) <span class="variable-1"></span></label>
+                <input id="variable-a" type="number">
+            </div>
+            <div class="input-container">
+                <label for="variable-b">b) <span class="variable-2"></span></label>
+                <input id="variable-b" type="number">
+            </div>
+            <div class="input-container">
+                <label for="variable-c">c) <span class="variable-3"></span></label>
+                <input id="variable-c" type="number">
+            </div>
+        </div>
+        <button type="button" class="hidden">Calculate</button>
+        <div class="div-result hidden">
+            <p></p>
+        </div>
+        <div class="warning hidden">
+            <p>* When you calculate the compound interest, you need to pay attention to the number
+                of
+                periods and the rate per period:</p>
+            <p>For example: if the nominal rate is compounded semianually, you need to divide it
+                by 2
+                (there are 2 periods of 6 months in a year), in order to find the rate per period.</p>
+            <p> Also, if it is compounded for 5 years, the number of periods is 10 (5 years * 2
+                periods
+                of 6 months).</p>
+        </div>
+    </form>
+</body>
+
+</html>

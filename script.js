@@ -6,14 +6,17 @@ const variables = document.querySelector('.variables');
 const variableA = document.querySelector('.variable-1');
 const variableB = document.querySelector('.variable-2');
 const variableC = document.querySelector('.variable-3');
+const variableD = document.querySelector('.variable-4');
 const inputvariableA = document.querySelector('#variable-a');
 const inputvariableB = document.querySelector('#variable-b');
 const inputvariableC = document.querySelector('#variable-c');
+const inputvariableD = document.querySelector('#variable-d');
 const inputAllVariables = Array.from(document.querySelectorAll('.variables input'));
 const divResult = document.querySelector('.div-result');
 const button = document.querySelector('button');
 const explanation = document.querySelector('.div-result p');
 const warning = document.querySelector('.warning');
+const divVarD = document.querySelector('.div-var-d');
 let result;
 
 function verifySelect() {
@@ -25,6 +28,7 @@ function verifySelect() {
                 variableA.textContent = 'interest';
                 variableB.textContent = 'rate of interest per period (year or month)';
                 variableC.textContent = 'time (years or months, depending on the rate)';
+                divVarD.classList.add('hidden');
                 result = (inputvariableA.value * 100 / (inputvariableB.value * inputvariableC.value)).toFixed(2);
                 if (selectVariable.value === 'interest') {
                     variableA.textContent = 'principal';
@@ -57,8 +61,9 @@ function verifySelect() {
             }
             else {
                 variableA.textContent = 'principal';
-                variableB.textContent = 'rate of interest per period (year or month)';
-                variableC.textContent = 'number of periods (years or months, depending on the rate)';
+                variableB.textContent = 'rate of interest per period (quarters, months, etc.)';
+                variableC.textContent = 'number of periods (quarters, months, etc., depending on the rate)';
+                divVarD.classList.add('hidden');
                 if (selectVariable.value === 'future-amount') {
                     variableA.textContent = 'principal';
                     result = (inputvariableA.value * Math.pow((1 + inputvariableB.value / 100), inputvariableC.value)).toFixed(2);
@@ -69,14 +74,22 @@ function verifySelect() {
                     result = (inputvariableA.value / Math.pow((1 + inputvariableB.value / 100), inputvariableC.value)).toFixed(2);
                     explanation.textContent = `If you want to have $${inputvariableA.value} in your account after ${inputvariableC.value} periods, and the interest rate is ${inputvariableB.value}% per period, you should invest $${result}.`;
                 }
+                else if (selectVariable.value === 'principal-fa') {
+                    variableA.textContent = '';
+                    variableB.textContent = '';
+                    variableC.textContent = '';
+                    explanation.textContent = `Option available only for simple interest!`;
+                }
                 else if (selectVariable.value === 'interest') {
                     variableA.textContent = 'principal';
                     result = (inputvariableA.value * Math.pow((1 + inputvariableB.value / 100), inputvariableC.value) - inputvariableA.value).toFixed(2);
                     explanation.textContent = `If you invest $${inputvariableA.value} at a rate of ${inputvariableB.value}% per period for ${inputvariableC.value} periods, you will earn $${result} in interest.`;
                 }
                 else if (selectVariable.value === 'rate-of-interest') {
+                    divVarD.classList.remove('hidden');
                     variableB.textContent = 'future amount';
-                    result = ((Math.pow(Math.abs(inputvariableB.value / inputvariableA.value), Math.abs(1 / inputvariableC.value)) - 1) * 100).toFixed(2);
+                    variableD.textContent = 'periods per year';
+                    result = (inputvariableD.value * (Math.pow(Math.abs(inputvariableB.value / inputvariableA.value), Math.abs(1 / inputvariableC.value)) - 1) * 100).toFixed(2);
                     explanation.textContent = `If you invest $${inputvariableA.value} and expect to receive the total amount of $${inputvariableB.value} after ${inputvariableC.value} periods, you need to invest such amount at a rate of ${result}% per period.`;
                 }
                 else {
@@ -130,7 +143,10 @@ inputAllVariables.forEach(variable => {
 });
 
 button.addEventListener('click', () => {
-    if (inputAllVariables.some(variable => variable.value === '')) {
+    if (inputAllVariables.some(variable => variable.value === '' && variable.id !== 'variable-d')) {
+        return;
+    }
+    if (selectVariable.value === 'rate-of-interest' && interestType.value === 'compound' && inputAllVariables.some(variable => variable.value === '')) {
         return;
     }
     if ((selectVariable.value !== '' && interestType.value !== '')) {

@@ -88,7 +88,7 @@ function verifySelect() {
                 else if (selectVariable.value === 'rate-of-interest') {
                     divVarD.classList.remove('hidden');
                     variableB.textContent = 'future amount';
-                    variableD.textContent = 'periods per year';
+                    variableD.textContent = 'periods per year (e.g., there are 4 quarters in a year)';
                     result = (inputvariableD.value * (Math.pow(Math.abs(inputvariableB.value / inputvariableA.value), Math.abs(1 / inputvariableC.value)) - 1) * 100).toFixed(2);
                     explanation.textContent = `If you invest $${inputvariableA.value} and expect to receive the total amount of $${inputvariableB.value} after ${inputvariableC.value} periods, you need to invest such amount at a rate of ${result}% per period.`;
                 }

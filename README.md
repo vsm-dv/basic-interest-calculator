@@ -1,7 +1,7 @@
 ## <img src=".\assets\calculator-svgrepo-com.svg" style="width: 25px; margin-right: 20px;">Basic interest calculator
 
-This basic calculator finds the value of any variable of the simple interest formula and the compound interest formula. You only need to inform the correct values for each component of the equation after you select the variable you wish to solve for.
-You can access it <a href="https://vsm-dv.github.io/basic-interest-calculator/">here</a>.
+This basic calculator finds the value of any variable of the simple interest formula and the compound interest formula. You only need to inform the correct values for each component of the equation after you select the variable you wish to solve for. <br>
+You can access it <a href="https://vsm-dv.github.io/basic-interest-calculator/">here</a>. <br>
 The calculator is based on the following formulas and their derived equations:
 
 **Simple interest formula:**

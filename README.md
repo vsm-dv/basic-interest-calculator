@@ -17,16 +17,13 @@ where:
 - t = number of periods
 
 **If the rate is annual but the number of periods is in months, you need to convert it into years:**
-
 For example: 6 months = 0.5 years.
 
 **Or if you have the value of a monthly rate and the time is in years, you can convert it into months:**
-
 For example: 1.5 years = 18 months.
 
 **When you calculate the compound interest, you need to pay attention to the number of periods and the rate per period:**
-
-For example: if the nominal rate is compounded semianually, you need to divide it by 2 (there are 2 periods of 6 months in a year), in order to find the rate per period.
+For example: if the nominal rate is compounded semianually, you need to divide it by 2 (there are 2 periods of 6 months in a year), in order to find the rate per period. <br>
 Also, if it is compounded for 5 years, the number of periods is 10 (5 years * 2 periods of 6 months).
 
 ---
